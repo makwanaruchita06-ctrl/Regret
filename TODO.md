@@ -6,7 +6,7 @@
 
 ## 3. Create/Update .env.example with Railway vars ✅\nCreated .env.example with local defaults + Railway MySQL template vars (use ${{MySQL.VAR}} format in Railway dashboard).
 
-## 4. Commit & push changes [MANUAL - User]
+## 4. Commit & push changes [MANUAL - User] 🚀\n```bash\ngit add .\ngit commit -m \"fix: session to file + railway db template\"\ngit push\n```\nRailway auto-deploys → https://regret-production.up.railway.app/ works!
 
 ## 5. Set Railway Variables [MANUAL - User]
 
