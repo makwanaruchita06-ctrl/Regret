@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Regret Consultancy</title>
     <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
     <style>
         body {
             background-color: #0f172a;
         }
         .teal-accent {
-            color: #0ea5a4;
+            color: #0257b3;
         }
         .teal-bg {
-            background-color: #0ea5a4;
+            background-color: #0257b3;
         }
         .teal-bg-hover:hover {
             background-color: #0d9488;
@@ -25,7 +27,7 @@
             color: #e5e7eb;
         }
         input:focus {
-            border-color: #0ea5a4;
+            border-color: #0257b3;
             outline: none;
         }
         input::placeholder {
@@ -43,7 +45,7 @@
 </head>
 <body class="h-screen flex">
     <!-- Left Side - Image -->
-    <div class="hidden lg:flex lg:w-1/2 bg-[#0ea5a4] items-center justify-center">
+    <div class="hidden lg:flex lg:w-1/2 bg-[#0257b3] items-center justify-center">
         <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop" alt="Regret Consultancy" class="w-full h-full object-cover">
     </div>
     
@@ -71,10 +73,10 @@
                 
                 <div class="flex items-center justify-between">
                     <label class="flex items-center">
-                        <input type="checkbox" name="remember" id="remember" class="w-4 h-4 rounded border-gray-600 bg-[#1e293b] text-[#0ea5a4]">
+                        <input type="checkbox" name="remember" id="remember" class="w-4 h-4 rounded border-gray-600 bg-[#1e293b] text-[#0257b3]">
                         <span class="ml-2 text-sm text-[#e5e7eb]">Remember me</span>
                     </label>
-                    <a href="/forgot-password" class="text-sm teal-accent hover:underline">Forgot password?</a>
+                    {{-- <a href="/forgot-password" class="text-sm teal-accent hover:underline">Forgot password?</a> --}}
                 </div>
 
                 @if($errors->any())
@@ -83,17 +85,32 @@
                 </div>
                 @endif
                 
-                @if(Session::has('error'))
+@if(Session::has('error') && !Auth::check())
                 <div class="bg-red-500/10 border border-red-500 text-red-500 px-4 py-3 rounded">
                     {{ Session::get('error') }}
                 </div>
                 @endif
+@if(Auth::check())
+<script>
+setTimeout(() => {
+  window.location.href = '/admin/dashboard';
+}, 1000);
+</script>
+<div class="text-center p-8">
+  <h2 class="text-2xl font-bold text-green-400 mb-4">Already Logged In</h2>
+  <p class="text-gray-300">Redirecting to dashboard...</p>
+</div>
+@endif
                 
                 <button type="submit" class="w-full teal-bg teal-bg-hover text-white font-semibold py-3 px-4 rounded-lg">
                     Sign In
                 </button>
+              
+               
             </form>
-            
+           <a href="/">   <button  class="w-full bg-white teal-bg-hover text-black font-semibold py-3 px-4 rounded-lg mt-10">
+                    <- Back To Website
+               </button></a>
             <p class="text-center mt-6 text-[#e5e7eb]">
                 Don't have an account? 
                 Contact super admin for access

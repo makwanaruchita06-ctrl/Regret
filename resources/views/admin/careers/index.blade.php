@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Careers - Regret Consultancy</title>
     <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
     <style>
         :root {
             --primary: #0257b3;
@@ -121,7 +123,7 @@
                                     <a href="javascript:void(0)" onclick="sortBy('type')" class="flex items-center gap-1 hover:text-[#0257b3]">
                                         Type
                                         @if($sortColumn === 'type')
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 inline text-[#0257b3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-3 inline text-[#0257b3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $sortDirection === 'asc' ? 'M5 15l7-7 7 7' : 'M19 9l-7 7-7-7' }}" />
                                         </svg>
                                         @endif
@@ -154,7 +156,7 @@
                                 <td class="px-6 py-4">
                                     <span class="text-sm text-slate-600">{{ $career->location ?: 'Not specified' }}</span>
                                 </td>
-                                <td class="px-6 py-4">
+                                <td class="">
                                     <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
                                         {{ ucwords(str_replace('_', ' ', $career->type)) }}
                                     </span>
@@ -291,7 +293,7 @@
             if (popup) popup.remove();
             
             try {
-                const response = await fetch(`/careers/${careerId}`, {
+const response = await fetch(`/admin/careers/${careerId}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',

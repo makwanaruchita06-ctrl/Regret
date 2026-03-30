@@ -1,217 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add Work - Regret Consultancy</title>
-<script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Work - Regret Consultancy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
 
-<style>
-:root {
---primary: #0257b3;
---primary-hover: #0d9488;
---secondary: #0f172a;
-}
+    <style>
+        :root {
+            --primary: #0257b3;
+            --primary-hover: #0d9488;
+            --secondary: #0f172a;
+        }
 
-body { background-color: #f1f5f9; }
+        body {
+            background-color: #f1f5f9;
+        }
 
-.sidebar { background-color: var(--secondary); }
+        .sidebar {
+            background-color: var(--secondary);
+        }
 
-.topbar { background-color: var(--secondary); }
+        .topbar {
+            background-color: var(--secondary);
+        }
 
-.btn-primary { background-color: var(--primary); color: white; }
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
 
-.btn-primary:hover { background-color: var(--primary-hover); }
-
-</style>
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+    </style>
 </head>
 
 <body class="font-sans">
 
-@include('layouts.sidebar')
-@include('layouts.topbar')
+    @include('layouts.sidebar')
+    @include('layouts.topbar')
 
-<!-- Main Content -->
+    <!-- Main Content -->
 
-<main class="pt-16 p-4 md:p-6 md:ml-64 mt-10">
+    <main class="pt-16 p-4 md:p-6 md:ml-64 mt-10">
 
-<div class="max-w-3xl mx-auto">
+        <div class="max-w-3xl mx-auto">
 
-<div class="card rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="card rounded-xl shadow-sm border border-slate-200 overflow-hidden">
 
-<!-- Header -->
+                <!-- Header -->
 
-<div class="p-4 md:p-6 border-b border-slate-200">
+                <div class="p-4 md:p-6 border-b border-slate-200">
 
-<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
 
-<div>
+                        <div>
 
-<h3 class="text-xl font-bold text-[#1e293b]">Add New Work</h3>
+                            <h3 class="text-xl font-bold text-[#1e293b]">Add New Work</h3>
 
-<p class="text-sm text-slate-500 mt-1">Create a new work entry</p>
+                            <p class="text-sm text-slate-500 mt-1">Create a new work entry</p>
 
-</div>
+                        </div>
 
-<a href="{{ route('portfolios.index') }}"
-class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 inline-flex items-center gap-2 justify-center">
+                        <a href="{{ route('portfolios.index') }}"
+                            class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 inline-flex items-center gap-2 justify-center">
 
-<svg xmlns="http://www.w3.org/2000/svg"
-class="h-5 w-5"
-fill="none"
-viewBox="0 0 24 24"
-stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
 
-<path stroke-linecap="round"
-stroke-linejoin="round"
-stroke-width="2"
-d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 19l-7-7m0 0l7-7m-7 7h18" />
 
-</svg>
+                            </svg>
 
-Back
+                            Back
 
-</a>
+                        </a>
 
-</div>
+                    </div>
 
-</div>
+                </div>
 
-<!-- Form -->
+                <!-- Form -->
 
-<form method="POST"
-action="{{ route('portfolios.store') }}"
-enctype="multipart/form-data"
-class="p-4 md:p-6">
+                <form method="POST" action="{{ route('portfolios.store') }}" enctype="multipart/form-data"
+                    class="p-4 md:p-6">
 
-@csrf
+                    @csrf
 
-<!-- Title -->
+                    <!-- Title -->
 
-<div class="mb-6">
+                    <div class="mb-6">
 
-<label class="block text-sm font-medium text-slate-700 mb-2">
-Title <span class="text-red-500">*</span>
-</label>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">
+                            Title <span class="text-red-500">*</span>
+                        </label>
 
-<input type="text"
-name="title"
-value="{{ old('title') }}"
-class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0257b3]"
-placeholder="Enter work title">
+                        <input type="text" name="title" value="{{ old('title') }}"
+                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0257b3]"
+                            placeholder="Enter work title">
 
-@error('title')
+                        @error('title')
 
-<p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                            <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
 
-@enderror
+                        @enderror
 
-</div>
+                    </div>
 
-<!-- Description -->
+                    <!-- Description -->
 
-<div class="mb-6">
+                    <div class="mb-6">
 
-<label class="block text-sm font-medium text-slate-700 mb-2">
-Description
-</label>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">
+                            Description
+                        </label>
 
-<textarea
-name="description"
-rows="4"
-class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0257b3]"
-placeholder="Enter work description">{{ old('description') }}</textarea>
 
-@error('description')
+                        <textarea name="description" rows="4"
+                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0257b3]"
+                            placeholder="Enter work description">{{ old('description') }}</textarea>
 
-<p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                        @error('description')
 
-@enderror
+                            <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
 
-</div>
+                        @enderror
 
-<!-- Image -->
+                    </div>
 
-<div class="mb-6">
+                    <!-- Keywords -->
 
-<label class="block text-sm font-medium text-slate-700 mb-2">
-Image
-</label>
+                    <div class="mb-6">
 
-<input type="file"
-name="image"
-accept="image/*"
-class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0257b3]">
+                        <label class="block text-sm font-medium text-slate-700 mb-2">
 
-<p class="mt-1 text-xs text-slate-500">
-Allowed: jpeg, png, jpg, gif, svg. Max size: 2MB
-</p>
+                            Keywords
 
-@error('image')
+                        </label>
 
-<p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                        <textarea name="keywords" rows="3"
+                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0257b3]"
+                            placeholder="Enter keywords (comma separated)">{{ old('keywords') }}</textarea>
 
-@enderror
+                        @error('keywords')
 
-</div>
+                            <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
 
-<!-- Status -->
+                        @enderror
 
-<div class="mb-6">
+                    </div>
 
-<label class="block text-sm font-medium text-slate-700 mb-2">
-Status <span class="text-red-500">*</span>
-</label>
 
-<select name="status"
-class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0257b3]">
+                    <!-- Gallery Upload + Preview -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-slate-700 mb-2">
+                            Gallery Images (Multiple)
+                        </label>
+                        <input type="file" name="images[]" accept="image/*" multiple
+                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0257b3]">
+                        <p class="mt-1 text-xs text-slate-500">
+                            Select multiple images for gallery (jpeg, png, jpg, gif, svg. Max 10, 2MB each)
+                        </p>
+                        @error('images')
+                            <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                        @enderror
+                    </div>
 
-<option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>
-Active
-</option>
+                    <!-- Status -->
 
-<option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>
-Inactive
-</option>
+                    <div class="mb-6">
 
-</select>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">
+                            Status <span class="text-red-500">*</span>
+                        </label>
 
-@error('status')
+                        <select name="status"
+                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0257b3]">
 
-<p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                            <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>
+                                Active
+                            </option>
 
-@enderror
+                            <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>
+                                Inactive
+                            </option>
 
-</div>
+                        </select>
 
-<!-- Buttons -->
+                        @error('status')
 
-<div class="flex flex-col sm:flex-row justify-start gap-3">
+                            <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
 
+                        @enderror
 
-<button type="submit"
-class="btn-primary px-6 py-2 rounded-lg">
+                    </div>
 
-Create Portfolio
+                    <!-- Buttons -->
 
-</button>
-<a href="{{ route('portfolios.index') }}"
-class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 text-center">
+                    <div class="flex flex-col sm:flex-row justify-start gap-3">
 
-Cancel
 
-</a>
+                        <button type="submit" class="btn-primary px-6 py-2 rounded-lg">
 
+                            Create Portfolio
 
-</div>
+                        </button>
+                        <a href="{{ route('portfolios.index') }}"
+                            class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 text-center">
 
-</form>
+                            Cancel
 
-</div>
+                        </a>
 
-</div>
 
-</main>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
 
 </body>
+
 </html>

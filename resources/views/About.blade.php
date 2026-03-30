@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Story - Regret Consultancy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+      <meta name="description"
+        content="Regret Consultancy is a professional consulting firm helping businesses and individuals grow with smart strategies, expert advice, and result-driven solutions.">
+    <meta name="keywords"
+        content="Regret Consultancy, business consulting India, career guidance services, professional consultancy, startup consulting, marketing strategy, business growth services, consultancy firm India, expert consulting services, digital consulting">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <title>About Us - Regret Consultancy</title>
+   
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
+   
     <style>
        body {
     font-family: 'Poppins', sans-serif;
@@ -60,43 +69,131 @@
         .heading-gradient {
             color: #0276db; /* Cyan-500 equivalent */
         }
-       
-        .bg-custom-cyan { background-color: #38bdf8; } /* Matching the vibrant cyan */
-        .text-custom-cyan { color: #38bdf8; }
+  .hero-section-custom {
+    background: radial-gradient(circle at 85% 50%, #013567 0%, #000000 70%);
+    
+    min-height: 100vh; /* default laptop */
+    padding-top: 100px;
+    padding-bottom: 300px;
+}
+
+/* 🔥 Mobile fix */
+@media (max-width: 768px) {
+    .hero-section-custom {
+        min-height: auto;      /* Mobile par content ke hisaab se height lega */
+        padding-top: 80px;     
+        padding-bottom: 300px;  /* Bottom space bilkul kam kar diya */
+    }
+}
+    
+    /* Baki saari classes (tags, animations) bilkul same rahengi */
+    .bg-custom-cyan { background-color: #38bdf8; }
+    .text-custom-cyan { color: #38bdf8; }
+.falling-tag {
+        padding: 10px 24px;
+        border-radius: 50px;
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(8px);
+        color: white;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        pointer-events: auto;
+        transition: all 0.3s ease;
+    }
+    .falling-tag:hover {
+        border-color: #0276db;
+        background: rgba(2, 118, 219, 0.2);
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(var(--tw-rotate)); }
+        50% { transform: translateY(-15px) rotate(var(--tw-rotate)); }
+    }
+    .animate-float {
+        animation: float 4s ease-in-out infinite;
+    }
+    @keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-line {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.animate-line:nth-child(1) { animation-delay: 0.2s; }
+.animate-line:nth-child(2) { animation-delay: 0.5s; }
+.animate-line:nth-child(3) { animation-delay: 0.8s; }
+     
     </style>
 </head>
 <body class="antialiased">
- <section class="hero-gradient relative w-full  flex-col">
-        
-        <!-- Header Section -->
-      @include('layouts.header')
+<!-- Hero Section Start -->
+<section class="relative flex flex-col items-center  overflow-hidden bg-black hero-section-custom ">    <!-- Header -->
+    <div class="absolute top-0 left-0 w-full z-50">
+        @include('layouts.header')
+    </div>
 
-        <!-- Hero Content Section -->
-        <main class="flex-grow flex flex-col items-center justify-start pt-16 px-6 text-center">
-            
-            <!-- Breadcrumbs -->
-            <div class="flex items-center gap-2 text-sm mb-6">
-                <span class="text-white opacity-80">Home</span>
-          >
-                <span class="text-[#00aec5] font-medium">AboutUs</span>
-            </div>
+    <!-- Background Glows -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-0 right-0 w-[60%] h-full bg-gradient-to-l from-[#0276db]/40 to-transparent blur-[120px]"></div>
+        <div class="absolute bottom-0 left-0 w-[40%] h-[60%] bg-gradient-to-tr from-[#013567]/30 to-transparent blur-[100px]"></div>
+    </div>
 
-            <!-- Title Heading -->
-            <h1 class="text-3xl md:text-5xl lg:text-4xl font-bold max-w-5xl leading-tight md:leading-snug mb-12 text-[#00aec5]  ">
-                To empower business with innovative digital marketing <br class="hidden md:block" />
-                <span class="text-[#00aec5]">Strategies</span> that drive <span class="text-gray-400 font-medium ">growth, visibility, and conversions.</span>
-            </h1>
+    <!-- Content Wrapper -->
+    <div class="relative z-10 text-center px-6 max-w-5xl mt-10">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center justify-center space-x-2 text-sm mb-8">
+            <a href="/" class="text-white hover:text-[#0276db] transition">Home</a>
+            <span class="text-white">></span>
+            <span class="text-[#0276db]">About Us</span>
+        </nav>
 
-            <!-- Empty Space for Image (As requested) -->
-                             <img src="/Regretconsultancy/public/image/about top.png" alt="Laptop" class="laptop-img rounded-xl">
-                             <!-- {{-- <img src="{{ asset('image/leptop.png') }}" alt="Laptop" class="absolute top-[28rem] md:-top-100"> --}} -->
+        <!-- Main Heading -->
+       <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
+    
+    <span class="block animate-line">To empower business</span>
+    <span class="block animate-line">with innovative digital</span>
+    <span class="block animate-line">marketing</span>
 
-        </main>
+</h1>
 
-        <!-- Mobile Navigation Menu (Hidden by default) -->
-       
+        <!-- Scattered Tags (Exactly like Image) -->
+        <div class="mt-20">
+            <!-- Left Side Tags -->
+          <div class="absolute bottom-[-50%] left-[10%] falling-tag -rotate-12 animate-float">Strategy</div>
+    <div class="absolute bottom-[-10%] left-[20%] falling-tag -rotate-12 animate-float" style="animation-delay: 1s;">Optimization</div>
+    <div class="absolute bottom-[-60%] left-[28%] falling-tag -rotate-6 animate-float" style="animation-delay: 2.5s;">Performance</div>
+    
+    <div class="absolute bottom-[-10%] left-[48%] falling-tag border-[#0276db] bg-[#0276db]/10 -rotate-6 animate-float">Analytics</div>
+    <div class="absolute bottom-[-60%] left-[58%] falling-tag -rotate-12 animate-float" style="animation-delay: 1.5s;">Insights</div>
 
-    </section>
+    <div class="absolute bottom-[-40%] right-[12%] falling-tag rotate-12 animate-float">Acquisition</div>
+    <div class="absolute bottom-[-20%] right-[22%] falling-tag -rotate-6 animate-float" style="animation-delay: 0.5s;">Targeting</div>
+    <div class="absolute bottom-[-30%] right-[5%] falling-tag -rotate-6 animate-float" style="animation-delay: 2s;">Branding</div>
+
+      </div>
+    </div>
+
+    <!-- Decorative Curved Dotted Lines (From Image) -->
+    <div class="absolute left-0 top-1/4 opacity-20 hidden lg:block">
+        <img src="{{ asset('image/1 (1).png') }}" alt="Dotted Line Left" class="w-48 h-90">
+    </div>
+    <div class="absolute right-0 top-1/2 opacity-20 hidden lg:block">
+       <img src="{{ asset('image/1 (2).png') }}" alt="Dotted Line Right" class="w-50 h-90">
+    </div>
+</section>
+
+
+<!-- Hero Section End -->
+<!-- Hero Section End -->
     <!-- About Section -->
    <section class="relative min-h-screen flex items-center justify-center px-6 py-20 lg:py-32 overflow-hidden">
 
@@ -158,7 +255,7 @@
                 <div class="relative aspect-[4/3] rounded-[40px] overflow-hidden bg-gray-900 border border-white/10">
                     <!-- Placeholder for the main image -->
                     <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-950">
-                       <img src="/Regretconsultancy/public/image/About.png" alt="">
+                       <img src="{{ asset('image/About.png') }}" alt="">
                     </div>
                     
                     <!-- Small dark overlay boxes at the bottom -->
@@ -260,12 +357,12 @@
                 </p>
                 
                 <div class="pt-4">
-                    <button class="bg-[#0276db] hover:bg-blue-700 transition-colors text-white px-8 py-3 rounded-full flex items-center gap-2 font-medium">
+                  <a href="/Career">  <button class="bg-[#0276db] hover:bg-blue-700 transition-colors text-white px-8 py-3 rounded-full flex items-center gap-2 font-medium">
                         View Open Positions
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
-                    </button>
+                    </button></a>
                 </div>
             </div>
 
@@ -276,7 +373,7 @@
                     <!-- Card 1 -->
                     <div class="card-bg p-6 rounded-xl text-black space-y-2">
                         <h3 class="font-bold flex items-center gap-1">
-                            <span class="text-sm text-[#0276db]">•</span> View Open Positions
+                          <span class="text-sm text-[#0276db]">•</span> View Open Positions
                         </h3>
                         <p class="text-xs md:text-sm leading-snug opacity-90">
                             Gain hands-on experience with actual brands and campaigns.
@@ -423,7 +520,7 @@
             </p>
 
             <!-- Button -->
-            <button class="inline-flex items-center gap-2 px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 md:py-3.5 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 active:scale-95 group"
+           <a href="/Career"> <button class="inline-flex items-center gap-2 px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 md:py-3.5 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105 active:scale-95 group"
                 style="background: #15355c; color: #ffffff;">
                 View Open Positions
                 <span class="group-hover:translate-x-1 transition-transform duration-200">
@@ -432,11 +529,18 @@
                         <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
                 </span>
-            </button>
+            </button></a>
 
         </div>
     </div>
 </section>
+    <!-- Scroll to Top Button -->
+    <a href="#" class="scroll-top-btn" onclick="scrollToTop(); return false;" title="Back to Top" style="display: block;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white bg-[#0276db]/90 hover:bg-[#0276db] p-3 rounded-full shadow-lg transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+      </svg>
+    </a>
+
 @include('layouts.footer')
 
     <style>
@@ -449,39 +553,7 @@
         }
       
     </style>
-  <script>
-        // Simple log to verify JS is running
-        console.log("Join Our Team section initialized.");
-        
-       document.querySelectorAll('button').forEach(btn=>{
-    btn.addEventListener('click', () => {
-        console.log("Navigating to open positions...");
-    });
-
-            // window.location.href = "/careers";
-        });
-    </script>
-    
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-    </script>
-     <script>
-        // Initialize Icons
-        lucide.createIcons();
-
-        // Mobile Menu Logic
-        const menuBtn = document.getElementById('menuBtn');
-        const closeBtn = document.getElementById('closeBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('translate-x-full');
-        });
-
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('translate-x-full');
-        });
-    </script>
+    <script src="{{ asset('js/script.js') }}"></script>
+     
 </body>
 </html>

@@ -1,0 +1,125 @@
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* NAV LINKS */
+    .nav-link {
+      position: relative;
+      font-weight: 600;
+      font-size: 15px;
+      color: black;
+      padding-bottom: 4px;
+      white-space: nowrap;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -4px;
+      width: 0;
+      height: 3px;
+      background: black;
+      transition: 0.3s;
+      transform: translateX(-50%);
+      border-radius: 10px;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* MOBILE FULL-SCREEN MENU */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgb(2 118 219);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      transform: translateY(-100%);
+      transition: 0.4s ease;
+      z-index: 999;
+    }
+
+    .mobile-menu.active {
+      transform: translateY(0);
+    }
+
+    .mobile-link {
+      font-size: 22px;
+      font-weight: 600;
+      color: white;
+      transition: opacity 0.2s;
+    }
+
+    .mobile-link:hover {
+      opacity: 0.75;
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 36px;
+      color: white;
+      cursor: pointer;
+      font-weight: 700;
+      line-height: 1;
+      background: none;
+      border: none;
+    }
+           .footer-link {
+            position: relative;
+            display: inline-block;
+        }
+
+        .phone-blue {
+            background-color: #006ed3;
+        }
+
+        .whatsapp-green {
+            background-color: #0fd939;
+        }
+
+        .footer-link::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: #006ed3;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .footer-link:hover::after {
+            width: 100%;
+        }
+              .scroll-top-btn {
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+            }
+
+            @media (max-width: 768px) {
+                .scroll-top-btn {
+                    opacity: 1 !important;
+                    visibility: visible !important;
+                }
+            }

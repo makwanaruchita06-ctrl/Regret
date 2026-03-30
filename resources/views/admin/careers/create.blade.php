@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Career - Regret Consultancy</title>
     <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
     <style>
         :root {
             --primary: #0257b3;

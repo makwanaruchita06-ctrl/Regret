@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reset Password - Regret Consultancy</title>
     <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
     <style>
         body {
             background-color: #0f172a;
         }
         .teal-accent {
-            color: #0ea5a4;
+            color: #0257b3;
         }
         .teal-bg {
-            background-color: #0ea5a4;
+            background-color: #0257b3;
         }
         .teal-bg-hover:hover {
             background-color: #0d9488;
@@ -24,7 +26,7 @@
             color: #e5e7eb;
         }
         input:focus {
-            border-color: #0ea5a4;
+            border-color: #0257b3;
             outline: none;
         }
         input::placeholder {
@@ -42,7 +44,7 @@
 </head>
 <body class="h-screen flex">
     <!-- Left Side - Image -->
-    <div class="hidden lg:flex lg:w-1/2 bg-[#0ea5a4] items-center justify-center">
+    <div class="hidden lg:flex lg:w-1/2 bg-[#0257b3] items-center justify-center">
         <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop" alt="Regret Consultancy" class="w-full h-full object-cover">
     </div>
     

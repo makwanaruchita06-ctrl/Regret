@@ -4,19 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description"
-        content="Regret Consultancy is a professional consulting firm helping businesses and individuals grow with smart strategies, expert advice, and result-driven solutions.">
-    <meta name="keywords"
-        content="Regret Consultancy, business consulting India, career guidance services, professional consultancy, startup consulting, marketing strategy, business growth services, consultancy firm India, expert consulting services, digital consulting">
-    <link rel="icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        crossorigin="anonymous" />
-   
     <title>Contact Us - Regret Consultancy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -28,7 +17,11 @@
         }
 
         .hero-gradient {
-            background: radial-gradient(circle at 120% 200%, #0276db 0%, #000000 65%);
+      background: radial-gradient(
+    circle at 50% 20%,
+    #062948 0%,
+    #000000 40%
+);
         }
 
         .globe-glow {
@@ -56,88 +49,35 @@
 
 <body>
 
-    <section class="hero-gradient relative w-full overflow-hidden py-5">
+<section class="hero-gradient relative w-full min-h-[600px] md:min-h-[700px] lg:min-h-[800px] overflow-hidden">
 
+    <!-- HEADER -->
+    <div class="relative z-30">
         @include('layouts.header')
+    </div>
 
-        <!-- MOBILE (sm only, hidden on md+) -->
-        <div class="flex md:hidden flex-col items-center pt-6 pb-0 px-4">
-            <div class="flex items-center gap-2 text-sm mb-4">
-              <a href="/">  <span class="text-white opacity-70">Home</span></a>
-                <span class="text-white opacity-70">&gt;</span>
-                <span class="text-[#0276db] font-medium">Contact Us</span>
-            </div>
+    <!-- IMAGE -->
+    <div class="absolute inset-0 flex items-end justify-center z-0">
+        <img src="{{ asset('image/ChatGPT Image Mar 21, 2026, 02_47_16 PM.png') }}"
+            class="w-full object-contain opacity-90 
+                   translate-y-0 md:translate-y-32 lg:translate-y-52" />
+    </div>
 
-            <h1 class="title text-3xl font-bold leading-tight text-[#03adce] mb-4 text-center">
-                Contact Us
-            </h1>
+    <!-- CONTENT -->
+    <main class="relative z-20 flex flex-col items-center pt-16 md:pt-20 px-6 text-center">
 
-            <div class="relative w-[80%] max-w-sm globe-glow mt-4">
-                <img src="{{ asset('image/contact.png') }}" alt="Globe" class="w-full h-auto object-contain" />
-
-                <!-- Email icon -->
-                <div class="absolute -top-[10%] right-[27%]">
-                    <div class="icon-circle">
-                        <i class="fa-regular fa-envelope text-[#00d4e8] text-sm"></i>
-                    </div>
-                </div>
-
-                <!-- Phone icon -->
-                <div class="absolute top-[40%] -right-[12%]">
-                    <div class="icon-circle">
-                        <i class="fa-solid fa-phone text-[#00d4e8] text-sm"></i>
-                    </div>
-                </div>
-
-                <!-- Location icon -->
-                <div class="absolute top-[92%] right-[24%]">
-                    <div class="icon-circle">
-                        <i class="fa-solid fa-location-dot text-[#00d4e8] text-sm"></i>
-                    </div>
-                </div>
-            </div>
+        <div class="flex items-center gap-2 mb-4 md:mb-6 text-sm md:text-base">
+            <a href="/" class="text-white opacity-80">Home</a> >
+            <span class="text-[#0276db]">Contact Us</span>
         </div>
 
-        <!-- DESKTOP (md+) — NO CHANGES -->
-        <div class="hidden md:flex relative  min-h-[60vh] md:min-h-[70vh]">
+        <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-[#0276db]">
+            Contact Us
+        </h1>
 
-            <div class="relative flex-shrink-0 globe-glow pt-[70px]" style="width: 42%; margin-left: -4%;">
-                <img src="{{ asset('image/contact.png') }}" alt="Globe" class="w-full h-auto object-contain"
-                    style="max-height: 50vh;" />
+    </main>
 
-                <div class="absolute top-[10%] right-[27%] lg:top-[10%] lg:right-[27%] md:top-[10%] md:right-[27%]">
-                    <div class="icon-circle">
-                        <i class="fa-regular fa-envelope text-[#00d4e8] text-base"></i>
-                    </div>
-                </div>
-
-                <div class="absolute top-[40%] right-[12%] lg:top-[50%] lg:right-[10%] md:top-[50%] md:right-[0%]">
-                    <div class="icon-circle">
-                        <i class="fa-solid fa-phone text-[#00d4e8] text-base"></i>
-                    </div>
-                </div>
-
-                <div class="absolute top-[88%] right-[24%] md:top-[92%] md:right-[30%] -z-99">
-                    <div class="icon-circle">
-                        <i class="fa-solid fa-location-dot text-[#00d4e8] text-base"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex flex-col -pt-20 px-8 lg:px-16">
-                <div class="flex  gap-2 text-sm mb-6">
-                    <span class="text-white opacity-80">Home</span>
-                    > <span class="text-[#0276db] font-medium">Contact Us</span>
-                </div>
-                <h1 class="title text-3xl md:text-5xl lg:text-4xl font-bold max-w-5xl leading-tight text-[#0276db]">
-                    Contact Us
-                </h1>
-            </div>
-
-        </div>
-
-    </section>
-
+</section>
     <!-- Leave your msg -->
 
     <section class="py-16 px-4 md:px-10 lg:px-20" style="background-color: #050505;">
@@ -291,13 +231,13 @@
                 </div>
 
                 <div class="flex items-center gap-4">
-                    <a href="#"
+                    <a href="https://www.instagram.com/regret_consultancy?igsh=Nmtnd3ZlMjVqOTQw"
                         class="w-10 h-10 rounded-full flex items-center justify-center transition hover:opacity-80">
                         <img src="{{ asset('image/icon/05.instagram.png') }}" alt="">
                     </a>
-                    <a href="#"
+                    <a href="https://www.facebook.com/people/Regret-Consultancy/61578415617702/"
                         class="w-10 h-10 rounded-full flex items-center justify-center transition hover:opacity-80">
-                        <img src="{{ asset('image/icon/linkedln.png') }}" alt="">
+                        <img src="{{ asset('image/icon/facebook.png') }}" alt="">
                     </a>
                     <a href="#"
                         class="w-10 h-10 rounded-full flex items-center justify-center transition hover:opacity-80">
@@ -327,7 +267,7 @@
                     agency
                 </p>
 
-                <button
+              <a href="/Career">  <button
                     class="bg-[#15355c] text-white px-6 md:px-10 py-2 md:py-3 rounded-full text-sm md:text-base font-medium inline-flex items-center group transition-all duration-300 transform hover:scale-105 active:scale-95">
                     View Open Positions
                     <span class="ml-2 group-hover:translate-x-1 transition-transform duration-200">
@@ -337,7 +277,7 @@
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
                     </span>
-                </button>
+                </button></a>
 
             </div>
         </div>

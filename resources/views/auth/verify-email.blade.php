@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Verification - Regret Consultancy</title>
     <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
     <style>
         body {
             background-color: #0f172a;
         }
         .teal-accent {
-            color: #0ea5a4;
+            color: #0257b3;
         }
         .teal-bg {
-            background-color: #0ea5a4;
+            background-color: #0257b3;
         }
         .teal-bg-hover:hover {
             background-color: #0d9488;
@@ -24,7 +26,7 @@
             color: #e5e7eb;
         }
         input:focus {
-            border-color: #0ea5a4;
+            border-color: #0257b3;
             outline: none;
         }
         .error-border {
@@ -39,7 +41,7 @@
 </head>
 <body class="h-screen flex">
     <!-- Left Side - Image -->
-    <div class="hidden lg:flex lg:w-1/2 bg-[#0ea5a4] items-center justify-center">
+    <div class="hidden lg:flex lg:w-1/2 bg-[#0257b3] items-center justify-center">
         <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop" alt="Regret Consultancy" class="w-full h-full object-cover">
     </div>
     
@@ -47,7 +49,7 @@
     <div class="w-full lg:w-1/2 flex items-center justify-center p-6 bg-[#0f172a]">
         <div class="w-full max-w-md">
             <div class="text-center mb-6">
-                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#0ea5a4]/20 mb-4">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#0257b3]/20 mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 teal-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>

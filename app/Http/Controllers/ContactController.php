@@ -64,9 +64,19 @@ class ContactController extends Controller
     /**
      * Display the specified contact.
      */
-    public function show(Contact $contact)
+    public function show(Contact $contact, Request $request)
     {
-        return response()->json($contact);
+        // Mark as read
+        $contact->status = 'read';
+        $contact->save();
+        
+        // Always JSON for AJAX calls (popup)
+        if (strtolower($request->header('X-Requested-With', '')) === 'xmlhttprequest') {
+            return response()->json($contact);
+        }
+        
+        // Full page view
+        return view('admin.contacts.show', compact('contact'));
     }
 
     /**
@@ -130,7 +140,7 @@ class ContactController extends Controller
 
         $this->logNotification('New contact inquiry', 'New inquiry from ' . $request->name, 'info');
 
-        return redirect()->back()->with('success', 'Thank you for your message! We will get back to you soon.');
+        return back()->with('success', 'Thank you for your message! We will get back to you soon.');
     }
 }
 

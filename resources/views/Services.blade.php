@@ -4,16 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     {{-- Title set by layout --}}
     <title>Services - Regret Consultancy</title>
-
-    <link rel="icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-
     <style>
         body {
             background: #000;
@@ -44,7 +38,7 @@
         }
 
         .hero-gradient {
-            background: radial-gradient(circle at 120% 200%, #0276db 0%, #000000 65%);
+            background: radial-gradient(circle at 80% 70%, rgba(2, 118, 219, 0.6) 0%, #000 60%);
             min-height: 60vh;
         }
 
@@ -52,30 +46,78 @@
             border: 1px solid rgba(56, 189, 248, .2);
             transition: .3s
         }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-main {
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        .animate-sub {
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards;
+            animation-delay: 0.6s;
+        }
     </style>
 </head>
 
 <body class="antialiased">
+    <section class="hero-gradient relative w-full flex flex-col overflow-hidden">
 
-    <section class="hero-gradient relative w-full flex flex-col">
         @include('layouts.header')
-        <main class="flex-grow flex flex-col items-center justify-start pt-10 px-6 text-center">
 
+
+
+        <main class="relative z-20 flex-grow flex flex-col items-center justify-start pt-10 px-6 text-center">
+
+            <!-- Breadcrumb -->
             <div class="flex items-center gap-2 text-sm mb-4">
                 <a href="/"> <span class="text-white opacity-80">Home</span> </a>
                 >
                 <span class="text-[#0276db] font-medium">Service</span>
             </div>
 
-            <h1 class="text-3xl md:text-4xl font-bold max-w-5xl leading-snug mb-10 text-[#ffffff]">
-                Comprehensive digital marketing solution Designed to help your brand
+            <!-- Heading -->
+            <h1 class="text-3xl md:text-4xl font-bold max-w-5xl leading-snug mb-16 text-white">
 
-                <span class="text-[#aaaeaf]">
+                <span class="animate-main block">
+                    Comprehensive digital marketing solution Designed to help your brand
+                </span>
+
+                <span class="text-gray-400 animate-sub block">
                     grow, engage, and convert in the digital landscape.
                 </span>
+
             </h1>
 
         </main>
+        <!-- LEFT WAVE -->
+        <!-- LEFT WAVE -->
+        <!-- LEFT WAVE -->
+        <!-- LEFT WAVE -->
+        <img src="{{ asset('image/Group (3).png') }}"
+            class="absolute bottom-[-96px] left-0 w-[50%] block pointer-events-none z-0">
+
+        <!-- RIGHT WAVE -->
+        <img src="{{ asset('image/Group (4).png') }}"
+            class="absolute bottom-0 right-0 w-[50%] h-[300px] pointer-events-none z-0">
+
+        <!-- PERSON IMAGE -->
+        <img src="{{ asset('image/20322f0506ddf1a31222ebf0adb8591bca1b3ff7.png') }}"
+            class=" w-[280px] md:w-[545px]  mx-auto z-10 pointer-events-none">
+
     </section>
 
 
@@ -102,10 +144,9 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-20">
 
                 @if($isEven)
-
-                    <div class="rounded-3xl overflow-hidden shadow-2xl h-80 md:h-96">
-                        <img src="{{ $imageUrl }}" class="w-full h-full object-contain">
-                    </div>
+<div class="rounded-3xl overflow-hidden shadow-2xl h-80 md:h-96 border-4 border-gray-300">
+    <img src="{{ $imageUrl }}" class="w-full h-full object-contain">
+</div>
 
                     <div class="space-y-5">
 
@@ -121,7 +162,7 @@
                         </h2>
 
                         <p class="text-gray-300 text-lg leading-relaxed">
-                            {{ $service->description }}
+                            {{ \Illuminate\Support\Str::limit(strip_tags($service->description), 100, '...') }}
                         </p>
 
                         <div class="space-y-2">
@@ -144,8 +185,10 @@
                         </div>
 
                         <div class="flex gap-4 pt-3">
-                            <a href="{{ route('services.show', $service->id) }}"
-                                class="bg-cyan text-black font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition block text-center">
+                            <a href="{{ route('services.show', $service->id) }}" class="bg-cyan text-black font-bold py-3 px-8 rounded-full 
+                               transition-all duration-300 ease-in-out 
+                               hover:bg-cyan-300 hover:scale-105 hover:shadow-lg 
+                               hover:-translate-y-1 block text-center">
                                 View Details
                             </a>
 
@@ -173,9 +216,9 @@
                         </h2>
 
                         <p class="text-gray-300 text-lg leading-relaxed">
-                            {{ $service->description }}
-                        </p>
 
+                            {{ \Illuminate\Support\Str::limit(strip_tags($service->description), 100, '...') }}
+                        </p>
                         <div class="space-y-2">
                             <p class="text-cyan font-bold">Key Deliverables:</p>
 
@@ -194,8 +237,10 @@
                         </div>
 
                         <div class="flex gap-4 pt-3">
-                            <a href="{{ route('services.show', $service->id) }}"
-                                class="bg-cyan text-black font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition block text-center">
+                            <a href="{{ route('services.show', $service->id) }}" class="bg-cyan text-black font-bold py-3 px-8 rounded-full 
+                                            transition-all duration-300 ease-in-out 
+                                            hover:bg-cyan-300 hover:scale-105 hover:shadow-lg 
+                                            hover:-translate-y-1 block text-center">
                                 View Details
                             </a>
 
@@ -207,9 +252,9 @@
 
                     </div>
 
-                    <div class="order-1 md:order-2 rounded-3xl overflow-hidden shadow-2xl h-80 md:h-96">
-                        <img src="{{ $imageUrl }}" class="w-full h-full object-contain">
-                    </div>
+                  <div class="order-1 md:order-2 rounded-3xl overflow-hidden shadow-2xl h-80 md:h-96 border-4 border-gray-300">
+    <img src="{{ $imageUrl }}" class="w-full h-full object-contain">
+</div>
 
                 @endif
 

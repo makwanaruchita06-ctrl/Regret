@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services - Regret Consultancy</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
     <style>
         :root {
             --primary: #0257b3;
@@ -161,59 +163,60 @@
 
                             @forelse($services as $service)
 
-                                                            <tr class="hover:bg-slate-50">
+                                <tr class="hover:bg-slate-50">
 
-                                                                <td class="px-3 py-3">
+                                    <td class="px-3 py-3">
 
-                                                                    @if($service->image)
+                                        @if($service->image)
 
-                                                                        <img src="{{ asset('uploads/services/' . $service->image) }}"
-                                                                            class="w-12 h-12 md:w-16 md:h-16 object-cover rounded-lg">
+                                            <img src="{{ asset('uploads/services/' . $service->image) }}"
+                                                class="w-12 h-12 md:w-16 md:h-16 object-cover rounded-lg">
 
-                                                                    @else
+                                        @else
 
-                                                                        <span class="text-slate-400 text-xs">No Image</span>
+                                            <span class="text-slate-400 text-xs">No Image</span>
 
-                                                                    @endif
+                                        @endif
 
-                                                                </td>
+                                    </td>
 
-                                                                <td class="px-3 py-3 text-sm text-slate-800 font-medium truncate">
-                                                                    {{ $service->title }}
-                                                                </td>
+                                    <td class="px-3 py-3 text-sm text-slate-800 font-medium truncate">
+                                        {{ $service->title }}
+                                    </td>
 
-                                                                <td class="px-3 py-3 text-sm text-slate-600 hidden md:table-cell">
-                                                                    {{ \Illuminate\Support\Str::limit($service->description, 50, '...') }}
-                                                                </td>
-                                                                <td
-                                                                    class="px-3 py-3 text-sm text-slate-600 hidden lg:table-cell truncate max-w-[150px]">
-                                                                    {{ \Illuminate\Support\Str::limit($service->deliverables ?? 'N/A', 40, '...') }}
-                                                                </td>
+                                    <td class="px-3 py-3 text-sm text-slate-600 hidden md:table-cell">
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($service->description), 50, '...') }}
+                                    </td>
+                                    <td
+                                        class="px-3 py-3 text-sm text-slate-600 hidden lg:table-cell truncate max-w-[150px]">
+                                        {{ \Illuminate\Support\Str::limit($service->deliverables ?? 'N/A', 40, '...') }}
+                                    </td>
 
 
-<td class="px-3 py-3">
-<span class="px-2 py-1 rounded-full text-xs font-semibold {{ ($service->status ?? 'inactive') === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
-{{ ucfirst($service->status ?? 'inactive') }}
-</span>
-</td>
+                                    <td class="px-3 py-3">
+                                        <span
+                                            class="px-2 py-1 rounded-full text-xs font-semibold {{ ($service->status ?? 'inactive') === 'active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
+                                            {{ ucfirst($service->status ?? 'inactive') }}
+                                        </span>
+                                    </td>
 
-                                                                <td class="px-3 py-3 flex gap-2 text-xs md:text-sm">
+                                    <td class="px-3 py-3 flex gap-2 text-xs md:text-sm">
 
-                                                                    <a href="{{ route('services.edit', $service->id) }}"
-                                                                        class="text-[#0257b3] hover:text-[#0d9488] font-medium">
-                                                                        Edit
-                                                                    </a>
+                                        <a href="{{ route('services.edit', $service->id) }}"
+                                            class="text-[#0257b3] hover:text-[#0d9488] font-medium">
+                                            Edit
+                                        </a>
 
-                                                                    <button type="button" onclick="deleteService({{ $service->id }})"
-                                                                        class="text-[#ef4444] hover:text-[#dc2626] font-medium">
+                                        <button type="button" onclick="deleteService({{ $service->id }})"
+                                            class="text-[#ef4444] hover:text-[#dc2626] font-medium">
 
-                                                                        Delete
+                                            Delete
 
-                                                                    </button>
+                                        </button>
 
-                                                                </td>
+                                    </td>
 
-                                                            </tr>
+                                </tr>
 
                             @empty
 

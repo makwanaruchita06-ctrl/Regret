@@ -11,11 +11,20 @@ class Portfolio extends Model
 
     protected $table = 'works';
 
+
     protected $fillable = [
         'title',
         'description',
         'image',
         'status',
+        'keywords',
+        'images',
     ];
+
+    protected $casts = [
+        'images' => 'array',
+    ];
+
+
 }
 

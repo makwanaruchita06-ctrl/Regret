@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services Details - Regret Consultancy</title>
+    <meta name="description"
+        content="Regret Consultancy is a professional consulting firm helping businesses and individuals grow with smart strategies, expert advice, and result-driven solutions.">
+    <meta name="keywords"
+        content="Regret Consultancy, business consulting India, career guidance services, professional consultancy, startup consulting, marketing strategy, business growth services, consultancy firm India, expert consulting services, digital consulting">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    {{-- Title set by layout --}}
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         * {
             box-sizing: border-box;
@@ -27,7 +29,7 @@
         }
 
         .hero-gradient {
-            background: radial-gradient(circle at 80% 50%, #0276db 0%, #000000 70%);
+            background: radial-gradient(circle at 80% 70%, rgba(2, 118, 219, 0.6) 0%, #000 60%);
             min-height: 60vh;
         }
 
@@ -147,7 +149,7 @@
         }
 
         .faq-item {
-            background:#00111f;
+            background: #00111f;
             /* border: 1px solid #1a5560; */
             border-radius: 14px;
             overflow: hidden;
@@ -222,6 +224,56 @@
             line-height: 1.7;
             margin: 0;
         }
+
+        .premium-description {
+            color: #ffffff;
+            /* Gray-400 */
+            text-align: justify;
+            text-justify: inter-word;
+            /* Words ke beech space manage karega */
+            hyphens: auto;
+            /* Bade words ko break karega gaps kam karne ke liye */
+        }
+
+        /* Headings aur Numbers (1, 2, 3) ko blue karne ke liye */
+        .premium-description strong,
+        .premium-description b,
+        .premium-description h1,
+        .premium-description h2 {
+            color: #60a5fa !important;
+            /* Blue-400 */
+            display: block;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+            text-align: left;
+            /* Headings ko justify nahi karna chahiye */
+        }
+
+        /* List items (points) ke beech gap */
+        .premium-description p {
+            margin-bottom: 1rem;
+        }
+
+        /* Agar editor se lists aa rahi hain */
+        .premium-description ul,
+        .premium-description ol {
+            text-align: left;
+            /* Lists ko hamesha left rakhein, justify nahi */
+            padding-left: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        /* Premium Lava Glow Effect */
+.glow-effect {
+    box-shadow: 0 0 40px 15px rgba(59, 130, 246, 0.5), /* Blue glow */
+                0 0 80px 30px rgba(99, 102, 241, 0.3); /* Soft purple lava effect */
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.glow-effect:hover {
+    box-shadow: 0 0 60px 25px rgba(59, 130, 246, 0.7),
+                0 0 100px 40px rgba(99, 102, 241, 0.5);
+}
     </style>
 </head>
 
@@ -230,24 +282,37 @@
         @include('layouts.header')
         <main class="flex-grow flex flex-col items-center justify-start pt-16 px-6 text-center pb-20">
             <div class="flex items-center gap-2 text-sm mb-6 flex-wrap justify-center">
-                <span class="text-white opacity-80">Home</span>
+                <a href="/"> <span class="text-white opacity-80">Home</span></a>
                 <span class="text-white opacity-70">&gt;</span>
-                <span class="text-white opacity-80">Services</span>
+                <a href="/services"> <span class="text-white opacity-80">Services</span></a>
                 <span class="text-white opacity-50">></span>
                 <span class="text-[#0276db] font-medium">{{ $service->title ?? 'Service Details' }}</span>
             </div>
-            @if($service && $service->image)
-                <div class="w-full max-w-4xl mx-auto rounded-3xl shadow-2xl overflow-hidden mb-8" style="height: 400px;">
-                    <img src="{{ asset('uploads/services/' . $service->image) }}" alt="{{ $service->title }}"
-                        class="w-full h-full object-contain">
-                </div>
-            @endif
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold max-w-4xl leading-tight text-[#0276db] mb-4">
                 {{ $service->title ?? 'Service Details' }}
             </h1>
-            <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto font-medium">
+          @if($service && $service->image)
+<div class="  rounded-3xl z-10 pointer-events-none overflow-hidden mb-8 relative glow-effect"
+     style="height: 400px;">
+    <img src="{{ asset('uploads/services/' . $service->image) }}" alt="{{ $service->title }}"
+         class="w-full h-full object-contain">
+</div>
+@endif
+
+            
+
+            <img src="{{ asset('image/Group (3).png') }}"
+                class="absolute bottom-[121px] left-0 w-[50%] block pointer-events-none z-0">
+
+            <!-- RIGHT WAVE -->
+            <img src="{{ asset('image/Group (4).png') }}"
+                class="absolute bottom-[130px] right-0 w-[50%] h-[300px] pointer-events-none z-0">
+
+
+
+            {{-- <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto font-medium">
                 {{ $service->description ?? 'Service description not available.' }}
-            </p>
+            </p> --}}
         </main>
     </section>
     <section class="service-section w-full py-14 sm:py-16 lg:py-20 px-4 sm:px-8">
@@ -256,24 +321,29 @@
                 <div>
                     <p class="overview-label">Overview</p>
                     <h2 class="text-3xl sm:text-4xl font-bold text-[#0276db] leading-snug mb-5">About This Service</h2>
-                    <p class="text-gray-400 text-sm sm:text-base leading-relaxed mb-8 max-w-md">
-                        {{ Str::limit($service->description ?? '', 200) }}
-                    </p>
+                    <div class="max-w-2xl">
+                        <div class="premium-description text-sm sm:text-base leading-relaxed tracking-wide">
+                            {!! $service->description !!}
+                        </div>
+                    </div>
                     @php
                         $deliverablesList = ($service->deliverables ?? $service->description) ? explode("\n", trim($service->deliverables ?? $service->description)) : [];
                         $serviceDeliverables = array_filter(array_map('trim', $deliverablesList));
                     @endphp
 
                     @if(!empty($serviceDeliverables))
-                        <div class="space-y-2 mb-8">
-                            <p class="text-cyan font-bold text-lg mb-4">Key Deliverables:</p>
+                        <div class="space-y-2 mb-8 mt-10">
+                            <p class="text-cyan font-bold text-lg ">Key Deliverables:</p>
                             <ul class="space-y-3">
                                 @forelse($serviceDeliverables as $deliverable)
                                     <li class="check-item">
                                         <span class="check-icon">
-                                           <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M19.7139 1.13184C20.4457 0.510278 21.4281 0.347894 22.2939 0.640625C22.5118 0.714373 22.5686 0.992469 22.4053 1.14551C17.4225 5.81669 13.5306 11.5598 11.0869 17.8291C10.7986 18.5685 10.1953 19.1352 9.45117 19.3691L9.30078 19.4111C9.28786 19.4143 9.27371 19.4174 9.25977 19.4209C8.1574 19.6966 7.00448 19.2331 6.40625 18.2666C4.30583 14.8724 2.00933 12.2073 0.739258 10.8447C0.554822 10.6469 0.491102 10.4466 0.500977 10.291C0.510062 10.1479 0.585114 9.97408 0.826172 9.81445C2.13669 8.94647 3.86603 9.28611 5.22754 10.75H5.22852C5.98225 11.5603 6.95972 12.6453 7.67188 13.4854L8.08496 13.9727L8.45898 13.4551C11.5736 9.14536 15.6357 4.59566 19.7139 1.13184Z" fill="#0276DB" stroke="#0276DB"/>
-</svg>
+                                            <svg width="23" height="20" viewBox="0 0 23 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M19.7139 1.13184C20.4457 0.510278 21.4281 0.347894 22.2939 0.640625C22.5118 0.714373 22.5686 0.992469 22.4053 1.14551C17.4225 5.81669 13.5306 11.5598 11.0869 17.8291C10.7986 18.5685 10.1953 19.1352 9.45117 19.3691L9.30078 19.4111C9.28786 19.4143 9.27371 19.4174 9.25977 19.4209C8.1574 19.6966 7.00448 19.2331 6.40625 18.2666C4.30583 14.8724 2.00933 12.2073 0.739258 10.8447C0.554822 10.6469 0.491102 10.4466 0.500977 10.291C0.510062 10.1479 0.585114 9.97408 0.826172 9.81445C2.13669 8.94647 3.86603 9.28611 5.22754 10.75H5.22852C5.98225 11.5603 6.95972 12.6453 7.67188 13.4854L8.08496 13.9727L8.45898 13.4551C11.5736 9.14536 15.6357 4.59566 19.7139 1.13184Z"
+                                                    fill="#0276DB" stroke="#0276DB" />
+                                            </svg>
 
                                         </span>
                                         {{ $deliverable }}
@@ -281,9 +351,12 @@
                                 @empty
                                     <li class="check-item">
                                         <span class="check-icon">
-                                            <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M19.7139 1.13184C20.4457 0.510278 21.4281 0.347894 22.2939 0.640625C22.5118 0.714373 22.5686 0.992469 22.4053 1.14551C17.4225 5.81669 13.5306 11.5598 11.0869 17.8291C10.7986 18.5685 10.1953 19.1352 9.45117 19.3691L9.30078 19.4111C9.28786 19.4143 9.27371 19.4174 9.25977 19.4209C8.1574 19.6966 7.00448 19.2331 6.40625 18.2666C4.30583 14.8724 2.00933 12.2073 0.739258 10.8447C0.554822 10.6469 0.491102 10.4466 0.500977 10.291C0.510062 10.1479 0.585114 9.97408 0.826172 9.81445C2.13669 8.94647 3.86603 9.28611 5.22754 10.75H5.22852C5.98225 11.5603 6.95972 12.6453 7.67188 13.4854L8.08496 13.9727L8.45898 13.4551C11.5736 9.14536 15.6357 4.59566 19.7139 1.13184Z" fill="#0276DB" stroke="#0276DB"/>
-</svg>
+                                            <svg width="23" height="20" viewBox="0 0 23 20" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M19.7139 1.13184C20.4457 0.510278 21.4281 0.347894 22.2939 0.640625C22.5118 0.714373 22.5686 0.992469 22.4053 1.14551C17.4225 5.81669 13.5306 11.5598 11.0869 17.8291C10.7986 18.5685 10.1953 19.1352 9.45117 19.3691L9.30078 19.4111C9.28786 19.4143 9.27371 19.4174 9.25977 19.4209C8.1574 19.6966 7.00448 19.2331 6.40625 18.2666C4.30583 14.8724 2.00933 12.2073 0.739258 10.8447C0.554822 10.6469 0.491102 10.4466 0.500977 10.291C0.510062 10.1479 0.585114 9.97408 0.826172 9.81445C2.13669 8.94647 3.86603 9.28611 5.22754 10.75H5.22852C5.98225 11.5603 6.95972 12.6453 7.67188 13.4854L8.08496 13.9727L8.45898 13.4551C11.5736 9.14536 15.6357 4.59566 19.7139 1.13184Z"
+                                                    fill="#0276DB" stroke="#0276DB" />
+                                            </svg>
 
                                         </span>
                                         No deliverables specified
@@ -296,9 +369,12 @@
                     <ul class="space-y-4">
                         {{-- <li class="check-item">
                             <span class="check-icon">
-                                <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M19.7139 1.13184C20.4457 0.510278 21.4281 0.347894 22.2939 0.640625C22.5118 0.714373 22.5686 0.992469 22.4053 1.14551C17.4225 5.81669 13.5306 11.5598 11.0869 17.8291C10.7986 18.5685 10.1953 19.1352 9.45117 19.3691L9.30078 19.4111C9.28786 19.4143 9.27371 19.4174 9.25977 19.4209C8.1574 19.6966 7.00448 19.2331 6.40625 18.2666C4.30583 14.8724 2.00933 12.2073 0.739258 10.8447C0.554822 10.6469 0.491102 10.4466 0.500977 10.291C0.510062 10.1479 0.585114 9.97408 0.826172 9.81445C2.13669 8.94647 3.86603 9.28611 5.22754 10.75H5.22852C5.98225 11.5603 6.95972 12.6453 7.67188 13.4854L8.08496 13.9727L8.45898 13.4551C11.5736 9.14536 15.6357 4.59566 19.7139 1.13184Z" fill="#0276DB" stroke="#0276DB"/>
-</svg>
+                                <svg width="23" height="20" viewBox="0 0 23 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M19.7139 1.13184C20.4457 0.510278 21.4281 0.347894 22.2939 0.640625C22.5118 0.714373 22.5686 0.992469 22.4053 1.14551C17.4225 5.81669 13.5306 11.5598 11.0869 17.8291C10.7986 18.5685 10.1953 19.1352 9.45117 19.3691L9.30078 19.4111C9.28786 19.4143 9.27371 19.4174 9.25977 19.4209C8.1574 19.6966 7.00448 19.2331 6.40625 18.2666C4.30583 14.8724 2.00933 12.2073 0.739258 10.8447C0.554822 10.6469 0.491102 10.4466 0.500977 10.291C0.510062 10.1479 0.585114 9.97408 0.826172 9.81445C2.13669 8.94647 3.86603 9.28611 5.22754 10.75H5.22852C5.98225 11.5603 6.95972 12.6453 7.67188 13.4854L8.08496 13.9727L8.45898 13.4551C11.5736 9.14536 15.6357 4.59566 19.7139 1.13184Z"
+                                        fill="#0276DB" stroke="#0276DB" />
+                                </svg>
 
                             </span>
                             Customized Strategy

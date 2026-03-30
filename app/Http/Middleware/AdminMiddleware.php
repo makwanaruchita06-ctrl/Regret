@@ -14,11 +14,13 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() || (Auth::user()->role ?? '') !== 'admin') {
-            return redirect('/login')->with('error', 'Admin access required.');
+if (!Auth::check()) {
+            return redirect('/login')->with('error', 'Please login first.');
+        }
+        if (!in_array(Auth::user()->role ?? '', ['admin', 'super_admin'])) {
+            return redirect('/')->with('error', 'Admin access required.');
         }
 
         return $next($request);
     }
 }
-

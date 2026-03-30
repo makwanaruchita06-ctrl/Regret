@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\JobApplicationController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,12 +51,14 @@ Route::middleware(['auth'])->group(function () {
     Route::put('admin/services/{service}', [ServiceController::class, 'update'])->name('services.update');
     Route::delete('admin/services/{service}', [ServiceController::class, 'destroy'])->name('services.destroy');
 
-    Route::get('admin/portfolios', [PortfolioController::class, 'index'])->name('portfolios.index');
-    Route::get('admin/portfolios/create', [PortfolioController::class, 'create'])->name('portfolios.create');
-    Route::post('admin/portfolios', [PortfolioController::class, 'store'])->name('portfolios.store');
-    Route::get('admin/portfolios/{portfolio}/edit', [PortfolioController::class, 'edit'])->name('portfolios.edit');
-    Route::put('admin/portfolios/{portfolio}', [PortfolioController::class, 'update'])->name('portfolios.update');
-    Route::delete('admin/portfolios/{portfolio}', [PortfolioController::class, 'destroy'])->name('portfolios.destroy');
+Route::middleware('admin')->group(function () {
+        Route::get('admin/portfolios', [PortfolioController::class, 'index'])->name('portfolios.index');
+        Route::get('admin/portfolios/create', [PortfolioController::class, 'create'])->name('portfolios.create');
+        Route::post('admin/portfolios', [PortfolioController::class, 'store'])->name('portfolios.store');
+        Route::get('admin/portfolios/{portfolio}/edit', [PortfolioController::class, 'edit'])->name('portfolios.edit');
+        Route::put('admin/portfolios/{portfolio}', [PortfolioController::class, 'update'])->name('portfolios.update');
+        Route::delete('admin/portfolios/{portfolio}', [PortfolioController::class, 'destroy'])->name('portfolios.destroy');
+    });
     
     // Careers Routes
     Route::get('admin/careers', [CareerController::class, 'index'])->name('careers.index');
@@ -84,9 +87,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Frontend Routes - Public
-Route::get('/', function () {
-    return view('Home');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/about', function () {
     return view('About');
@@ -98,9 +99,13 @@ Route::post('/careers/apply', [CareerController::class, 'apply'])->name('careers
 Route::get('/services', [ServiceController::class, 'publicIndex'])->name('services.public');
 Route::get('/ServicesDetails/{service}', [ServiceController::class, 'show'])->name('services.show');
 
+Route::get('/portfolio', [PortfolioController::class, 'publicIndex'])->name('portfolio');
+Route::get('/portfolio/{slug}', [PortfolioController::class, 'showDetails'])->name('portfolio.details');
 Route::get('/contact', function () {
     return view('Conatct');
 })->name('contact');
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+Route::fallback([HomeController::class, 'index']); // Fallback for invalid URLs to homepage
 

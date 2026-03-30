@@ -4,17 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description"
-        content="Regret Consultancy is a professional consulting firm helping businesses and individuals grow with smart strategies, expert advice, and result-driven solutions.">
-    <meta name="keywords"
-        content="Regret Consultancy, business consulting India, career guidance services, professional consultancy, startup consulting, marketing strategy, business growth services, consultancy firm India, expert consulting services, digital consulting">
-    <link rel="icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('image/Favicon.jpeg') }}">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        crossorigin="anonymous" />
+   <title>Career - Regret Consultancy</title>
+       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -24,7 +16,8 @@
             overflow-x: hidden;
         }
         .hero-gradient {
-            background: radial-gradient(circle at 80% 50%, #004d55 0%, #000000 70%);
+          
+          background: radial-gradient(circle at 80% 70%, rgba(2,118,219,0.6) 0%, rgba(40, 87, 129, 0.6) 60%);
             min-height: 70vh;
         }
         .card-border {
@@ -41,29 +34,124 @@
             flex-shrink: 0;
             background: #ffff;
         }
+        .hero-gradient {
+          
+            /* Exact background color matching your image */
+         background: linear-gradient(
+    to bottom,
+    #000000 0%,      /* Top black */
+    #062d5f 50%,     /* Center blue */
+    #011126 100%     /* Bottom blue */
+);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+
+
+
+@media (max-width: 768px) {
+    .hero-gradient {
+        min-height: auto; /* Mobile mein extra space hatane ke liye */
+        padding-bottom: 20px;
+    }
+}
+        /* Floating Automation Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-tag {
+            animation: float 4s ease-in-out infinite;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .tag-1 { animation-delay: 0s; }
+        .tag-2 { animation-delay: 1s; }
+        .tag-3 { animation-delay: 2s; }
+        .tag-4 { animation-delay: 0.5s; }
+        .tag-5 { animation-delay: 1.5s; }
+        @keyframes zoomFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-title {
+  opacity: 0;
+  animation: zoomFade 0.9s ease forwards;
+  animation-delay: 0.3s;
+}
     </style>
 </head>
 <body class="antialiased">
 
-    <section class="hero-gradient relative w-full flex-col">
+ <section class="hero-gradient relative w-full overflow-hidden flex flex-col">
+    
+    <div class="w-full">
         @include('layouts.header')
-       <main class="flex-grow flex flex-col items-center justify-start pt-10 px-6 text-center">
+    </div>
 
-<div class="flex items-center gap-2 text-sm mb-4">
-               <a href="/"> <span class="text-white opacity-80">Home</span></a>
-                              <span class="text-white opacity-70">&gt;</span>
- <span class="text-[#0276db] font-medium">Career</span>
+<main class="relative z-20 flex-grow flex flex-col items-center justify-start pt-4 px-6 text-center">
+        <div class="flex items-center gap-2 text-sm mb-4">
+            <a href="/">
+                <span class="text-white opacity-80">Home</span>
+            </a>
+            <span class="text-white opacity-70">&gt;</span>
+            <span class="text-[#2272e0] font-medium">Career</span>
+        </div>
+
+       <h1 class="title text-4xl md:text-6xl font-bold max-w-5xl leading-tight text-[#2272e0] animate-title">
+    Join Our Growing Team
+</h1>
+
+        <p class="text-white text-[18px] md:text-[20px] max-w-[650px] mx-auto font-medium mt-[15px] leading-relaxed">
+            Build your career in digital marketing. We’re looking for passionate individuals who want to learn, grow, and make an impact in the ever-evolving world of digital marketing.
+        </p>
+
+        <!-- Image Container -->
+        <div class="relative  w-full flex justify-center items-end">
+            
+            <!-- 1. Background City Image (Ab ye poori width cover karegi) -->
+            <img src="{{ asset('image/Group 645.png') }}" 
+                 class="w-full h-auto min-h-[200px] object-cover opacity-60 pointer-events-none">
+
+            <!-- 2. Main Character Image (Ladki - Jo center bottom me fix hogi) -->
+            <img src="{{ asset('image/middl.png') }}" 
+                 class="absolute bottom-0 left-[500px] -translate-x-1/2 w-[250px] md:w-[600px] lg:w-[700px] z-20 pointer-events-none">
+
+            <!-- 3. Floating Tags (Responsive positions) -->
+            <div class="floating-tag tag-1 absolute top-[10%] left-[5%] md:left-[15%] bg-white text-black px-3 py-1 md:px-4 md:py-2 rounded-full text-[10px] md:text-sm font-bold z-30 whitespace-nowrap">
+                Explore Career Opportunities
             </div>
-            <h1 class="title text-3xl md:text-5xl lg:text-4xl font-bold max-w-5xl leading-tight text-[#0276db]">
-                Join Our Growing Team
-            </h1>
-            <p class="text-[#999999] text-[20px] max-w-[590px] mx-auto font-medium mt-[10px]">
-                Build your career in digital marketing. we're looking for passionate
-                individuals who want to learn, grow, and make an impact in the
-                ever-evolving world of digital marketing
-            </p>
-        </main>
-    </section>
+
+            <div class="floating-tag tag-2 absolute top-[40%] left-[2%] md:left-[10%] bg-white text-black px-3 py-1 md:px-4 md:py-2 rounded-full text-[10px] md:text-sm font-bold z-30 whitespace-nowrap">
+                Join Our Professional team
+            </div>
+
+            <div class="floating-tag tag-3 absolute bottom-[15%] left-[5%] md:left-[20%] bg-white text-black px-3 py-1 md:px-4 md:py-2 rounded-full text-[10px] md:text-sm font-bold z-30 whitespace-nowrap">
+                Shape for future with us
+            </div>
+
+            <div class="floating-tag tag-4 absolute top-[25%] right-[5%] md:right-[15%] bg-white text-black px-3 py-1 md:px-4 md:py-2 rounded-full text-[10px] md:text-sm font-bold z-30 whitespace-nowrap">
+                Build Your Career With US
+            </div>
+
+            <div class="floating-tag tag-5 absolute bottom-[30%] right-[2%] md:right-[10%] bg-white text-black px-3 py-1 md:px-4 md:py-2 rounded-full text-[10px] md:text-sm font-bold z-30 whitespace-nowrap">
+                Be Part of Our team
+            </div>
+        </div>
+    </main>
+</section>
     <!-- Life At Regrete -->
 
     <section class="bg-[#050505] py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-16 lg:px-24">
@@ -250,43 +338,6 @@
 @endforelse
     </div>
 
-  <script>
-    let openAccordion = null;
-
-    function toggleAccordion(id) {
-      const current = document.getElementById("accordion" + id);
-      const arrow = document.getElementById("arrow" + id);
-      const header = document.getElementById("header" + id);
-
-      if (openAccordion && openAccordion !== id) {
-        const prev = document.getElementById("accordion" + openAccordion);
-        const prevArrow = document.getElementById("arrow" + openAccordion);
-        const prevHeader = document.getElementById("header" + openAccordion);
-
-        prev.classList.remove("grid-rows-[1fr]");
-        prev.classList.add("grid-rows-[0fr]");
-        prevArrow.classList.remove("rotate-180");
-        prevHeader.classList.remove("rounded-b-none");
-        prevHeader.classList.add("rounded-xl");
-      }
-
-      if (current.classList.contains("grid-rows-[1fr]")) {
-        current.classList.remove("grid-rows-[1fr]");
-        current.classList.add("grid-rows-[0fr]");
-        arrow.classList.remove("rotate-180");
-        header.classList.remove("rounded-b-none");
-        header.classList.add("rounded-xl");
-        openAccordion = null;
-      } else {
-        current.classList.remove("grid-rows-[0fr]");
-        current.classList.add("grid-rows-[1fr]");
-        arrow.classList.add("rotate-180");
-        header.classList.remove("rounded-xl");
-        header.classList.add("rounded-b-none");
-        openAccordion = id;
-      }
-    }
-  </script>
 
 </section>
 
@@ -501,5 +552,52 @@
   </div>
 </section>
  @include('layouts.footer')
+ <script>
+        // Optional: Mouse Move Parallax Effect for automation feel
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            const girlImg = document.querySelector('.z-10');
+            girlImg.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    </script>
+    
+  <script>
+    let openAccordion = null;
+
+    function toggleAccordion(id) {
+      const current = document.getElementById("accordion" + id);
+      const arrow = document.getElementById("arrow" + id);
+      const header = document.getElementById("header" + id);
+
+      if (openAccordion && openAccordion !== id) {
+        const prev = document.getElementById("accordion" + openAccordion);
+        const prevArrow = document.getElementById("arrow" + openAccordion);
+        const prevHeader = document.getElementById("header" + openAccordion);
+
+        prev.classList.remove("grid-rows-[1fr]");
+        prev.classList.add("grid-rows-[0fr]");
+        prevArrow.classList.remove("rotate-180");
+        prevHeader.classList.remove("rounded-b-none");
+        prevHeader.classList.add("rounded-xl");
+      }
+
+      if (current.classList.contains("grid-rows-[1fr]")) {
+        current.classList.remove("grid-rows-[1fr]");
+        current.classList.add("grid-rows-[0fr]");
+        arrow.classList.remove("rotate-180");
+        header.classList.remove("rounded-b-none");
+        header.classList.add("rounded-xl");
+        openAccordion = null;
+      } else {
+        current.classList.remove("grid-rows-[0fr]");
+        current.classList.add("grid-rows-[1fr]");
+        arrow.classList.add("rotate-180");
+        header.classList.remove("rounded-xl");
+        header.classList.add("rounded-b-none");
+        openAccordion = id;
+      }
+    }
+  </script>
 </body>
 </html>
