@@ -1,19 +1,15 @@
-# Our Creative Work Image Fix - COMPLETED ✅
+# TODO: Fix Production Database/Session Error on Railway
 
-## Plan Breakdown
-1. ✅ Create TODO.md 
-2. ✅ Fix image aspect ratios in 3x3 grid (added aspect-[4/3], object-cover !important)
-3. ✅ Update empty slot styling (gradient placeholders + text)
-4. ✅ Improve hover transitions (opacity 70%→95%, scale 110%→105%, faster duration)
-5. ✅ Test responsive layout (grid maintains, mobile stacks preserved)
-6. ✅ Verify no layout shifts elsewhere (only targeted "Our Creative Work" section)
-7. ✅ attempt_completion (Next)
+## 1. ✅ TODO.md created
 
-**Status:** Image design fixed - no more "long" stretched images. Layout preserved everywhere else.
+## 2. Update config/session.php ✅\nChanged SESSION_DRIVER default from 'database' to 'file' for immediate production fix (file driver doesn't require DB).
 
-**Changes Summary:**
-- Fixed 9-grid + side cards image containers
-- Consistent 4:3 portrait ratio prevents distortion
-- Smooth hovers, lazy loading added
-- Self-contained - no side effects
+## 3. Create/Update .env.example with Railway vars ✅\nCreated .env.example with local defaults + Railway MySQL template vars (use ${{MySQL.VAR}} format in Railway dashboard).
 
+## 4. Commit & push changes [MANUAL - User]
+
+## 5. Set Railway Variables [MANUAL - User]
+
+## 6. php artisan migrate on Railway [MANUAL - User]
+
+## 7. Test https://regret-production.up.railway.app/ [MANUAL - User]
